@@ -55,6 +55,6 @@ EventListener-invoke-legacy.html:
 - [fail]
 - Animation stuff not implemented
 
-EventTarget-constructible.any.js:
+EventTarget-constructible.any.html:
 - [fail]
 - Not implemented

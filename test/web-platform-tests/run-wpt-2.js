@@ -21,22 +21,29 @@ if (manifest.version !== EXPECTED_MANIFEST_VERSION) {
 const toRunDocuments = jsYAML.safeLoadAll(toRunString, { filename: toRunFilename });
 const toRunDirs = toRunDocuments.map(doc => doc.DIR).sort();
 
+const testharnessTests = manifest.items.testharness;
+
 describe("Web platform tests", () => {
   // This could be optimized further by knowing that toRunDirs is in alphabetical order.
   // For now we assume toRunDirs is small enough that this doesn't matter.
-  for (const filePath of Object.keys(manifest.paths)) {
+  for (const filePath of Object.keys(testharnessTests)) {
     for (let toRunDirIndex = 0; toRunDirIndex < toRunDirs.length; ++toRunDirIndex) {
       const toRunDir = toRunDirs[toRunDirIndex];
       if (filePath.startsWith(toRunDir + "/")) {
-        const fileType = manifest.paths[filePath][1];
+        const testFiles = testharnessTests[filePath].map(value => value[[0]]);
+        for (const testFile of testFiles) {
+          const testFilePath = stripPrefix(testFile, "/");
+          // Globally disable worker tests
+          if (testFilePath.endsWith(".worker.html")) {
+            continue;
+          }
 
-        if (fileType === "testharness") {
-          const result = toRunDocuments[toRunDirIndex][stripPrefix(filePath, toRunDir + "/")];
+          const result = toRunDocuments[toRunDirIndex][stripPrefix(testFilePath, toRunDir + "/")];
 
           if (result && result[0].includes("fail")) {
-            xspecify(filePath);
+            xspecify(testFilePath);
           } else {
-            runWebPlatformTest(filePath);
+            runWebPlatformTest(testFilePath);
           }
         }
       }
