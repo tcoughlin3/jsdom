@@ -1,0 +1,60 @@
+DIR: dom/collections
+
+HTMLCollection-as-proto-length-get-throws.html:
+- [fail]
+- https://github.com/jsdom/webidl2js/issues/62
+
+HTMLCollection-supported-property-indices.html:
+- [fail]
+- Named versus indexed properties trickiness
+
+HTMLCollection-supported-property-names.html:
+- [fail]
+- Names vs. ids priority and effect on enumeration order
+
+domstringmap-supported-property-names.html:
+- [fail]
+- DOMStringMap not implemented
+
+---
+DIR: dom/events
+
+AddEventListenerOptions-passive.html:
+- [fail]
+- https://github.com/tmpvar/jsdom/issues/1609
+
+EventTarget-dispatchEvent.html:
+- [fail]
+- We don't support every event interface yet
+
+Event-dispatch-click.html:
+- [fail]
+- Unknown
+
+Event-dispatch-redispatch.html:
+- [fail]
+- Unknown
+
+Event-subclasses-constructors.html:
+- [fail]
+- We don't support every event interface yet
+
+Event-timestamp-high-resolution.html:
+- [fail]
+- Not implemented; also depends on WheelEvent
+
+EventListener-incumbent-global-1.sub.html:
+- [fail]
+- Multi-globals
+
+EventListener-incumbent-global-2.sub.html:
+- [fail]
+- Multi-globals
+
+EventListener-invoke-legacy.html:
+- [fail]
+- Animation stuff not implemented
+
+EventTarget-constructible.any.js:
+- [fail]
+- Not implemented
