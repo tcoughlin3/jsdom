@@ -40,7 +40,7 @@ describe("Web platform tests", () => {
 
           const result = toRunDocuments[toRunDirIndex][stripPrefix(testFilePath, toRunDir + "/")];
 
-          if (result && result[0].includes("fail")) {
+          if (result) {
             xspecify(testFilePath);
           } else {
             runWebPlatformTest(testFilePath);
