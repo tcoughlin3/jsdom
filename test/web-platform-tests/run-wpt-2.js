@@ -7,9 +7,6 @@ const runWebPlatformTest = require("./run-web-platform-test.js")(path.resolve(__
 
 const EXPECTED_MANIFEST_VERSION = 4;
 
-const toRunFilename = path.resolve(__dirname, "to-run.yaml");
-const toRunString = fs.readFileSync(toRunFilename, { encoding: "utf-8" });
-
 const manifestFilename = path.resolve(__dirname, "tests/MANIFEST.json");
 const manifestString = fs.readFileSync(manifestFilename, { encoding: "utf-8" });
 const manifest = JSON.parse(manifestString);
@@ -18,6 +15,8 @@ if (manifest.version !== EXPECTED_MANIFEST_VERSION) {
   throw new Error(`WPT manifest format mismatch; expected ${EXPECTED_MANIFEST_VERSION} but got ${manifest.version}`);
 }
 
+const toRunFilename = path.resolve(__dirname, "to-run.yaml");
+const toRunString = fs.readFileSync(toRunFilename, { encoding: "utf-8" });
 const toRunDocuments = jsYAML.safeLoadAll(toRunString, { filename: toRunFilename });
 const toRunDirs = toRunDocuments.map(doc => doc.DIR).sort();
 
