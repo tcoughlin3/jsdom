@@ -2,7 +2,8 @@
 const path = require("path");
 const fs = require("fs");
 const jsYAML = require("js-yaml");
-const { describe, xspecify } = require("mocha-sugar-free");
+const sortArrayBy = require("sort-array-by");
+const { describe, specify } = require("mocha-sugar-free");
 const runWebPlatformTest = require("./run-web-platform-test.js")(path.resolve(__dirname, "tests"));
 
 const EXPECTED_MANIFEST_VERSION = 4;
@@ -17,18 +18,16 @@ if (manifest.version !== EXPECTED_MANIFEST_VERSION) {
 
 const toRunFilename = path.resolve(__dirname, "to-run.yaml");
 const toRunString = fs.readFileSync(toRunFilename, { encoding: "utf-8" });
-const toRunDocuments = jsYAML.safeLoadAll(toRunString, { filename: toRunFilename });
-const toRunDirs = toRunDocuments.map(doc => doc.DIR).sort();
+const toRunDocs = sortArrayBy(doc => doc.DIR, jsYAML.safeLoadAll(toRunString, { filename: toRunFilename }));
 
 const testharnessTests = manifest.items.testharness;
 
 describe("Web platform tests", () => {
-  // This could be optimized further by knowing that toRunDirs is in alphabetical order.
-  // For now we assume toRunDirs is small enough that this doesn't matter.
+  // This could be optimized further by knowing that toRunDocs is in alphabetical order.
+  // For now we assume toRunDocs is small enough that this doesn't matter.
   for (const filePath of Object.keys(testharnessTests)) {
-    for (let toRunDirIndex = 0; toRunDirIndex < toRunDirs.length; ++toRunDirIndex) {
-      const toRunDir = toRunDirs[toRunDirIndex];
-      if (filePath.startsWith(toRunDir + "/")) {
+    for (const toRunDoc of toRunDocs) {
+      if (filePath.startsWith(toRunDoc.DIR + "/")) {
         const testFiles = testharnessTests[filePath].map(value => value[[0]]);
         for (const testFile of testFiles) {
           const testFilePath = stripPrefix(testFile, "/");
@@ -37,10 +36,10 @@ describe("Web platform tests", () => {
             continue;
           }
 
-          const result = toRunDocuments[toRunDirIndex][stripPrefix(testFilePath, toRunDir + "/")];
+          const result = toRunDoc[stripPrefix(testFilePath, toRunDoc.DIR + "/")];
 
           if (result) {
-            xspecify(testFilePath);
+            specify.skip(testFilePath);
           } else {
             runWebPlatformTest(testFilePath);
           }
