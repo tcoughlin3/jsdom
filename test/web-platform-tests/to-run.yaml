@@ -1,6 +1,6 @@
 DIR: dom/collections
 
-HTMLCollection-as-proto-length-get-throws.html: [fail, https://github.com/jsdom/webidl2js/issues/62]
+HTMLCollection-as-proto-length-get-throws.html: [fail,  Brand checks not strict enough, https://github.com/jsdom/webidl2js/issues/62]
 HTMLCollection-supported-property-indices.html: [fail, Named versus indexed properties trickiness]
 HTMLCollection-supported-property-names.html: [fail, Names vs. ids priority and effect on enumeration order]
 domstringmap-supported-property-names.html: [fail, DOMStringMap not implemented]
@@ -9,7 +9,7 @@ domstringmap-supported-property-names.html: [fail, DOMStringMap not implemented]
 
 DIR: dom/events
 
-AddEventListenerOptions-passive.html: [fail, https://github.com/tmpvar/jsdom/issues/1609]
+AddEventListenerOptions-passive.html: [fail, Not implemented, https://github.com/tmpvar/jsdom/issues/1609]
 EventTarget-dispatchEvent.html: [fail, We don't support every event interface yet]
 Event-dispatch-click.html: [fail, Unknown]
 Event-dispatch-redispatch.html: [fail, Unknown]
@@ -19,3 +19,549 @@ EventListener-incumbent-global-1.sub.html: [fail, Multi-globals]
 EventListener-incumbent-global-2.sub.html: [fail, Multi-globals]
 EventListener-invoke-legacy.html: [fail, Animation stuff not implemented]
 EventTarget-constructible.any.html: [fail, Not implemented]
+
+# ---
+
+# DIR: dom/nodes
+
+# CharacterData-appendChild.html: [fail, Unknown]
+# ChildNode-after.html: [fail, Not implemented]
+# ChildNode-before.html: [fail, Not implemented]
+# ChildNode-replaceWith.html: [fail, Not implemented]
+# Comment-constructor.html: [fail, Unknown]
+# DOMImplementation-createDocument.html: [fail, Unknown]
+# Document-URL.sub.html: [fail, Unknown]
+# Document-characterSet-normalization.html: [fail, Unknown]
+# Document-constructor-svg.svg: [fail, Unknown]
+# Document-constructor-xml.xml: [fail, Unknown]
+# Document-constructor.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_bmp.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_css.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_gif.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_jpg.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_mimeheader_01.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_png.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_txt.html: [fail, Unknown]
+# Document-contentType/contentType/contenttype_xml.html: [timeout, Unknown]
+# Document-contentType/contentType/createDocument.html: [fail, Unknown]
+# Document-createElement-namespace.html: [timeout, Unknown]
+# Document-createElement.html: [fail, Unknown]
+# Document-createElementNS.html: [fail, Unknown]
+# Document-createEvent.html: [fail, Unknown]
+# Document-getElementById.html: [fail, We cache IDs in insertion order]
+# Document-getElementsByTagName-xhtml.xhtml
+# Document-getElementsByTagName.html: [fail, We are doing Unicode-aware lowercasing. should be ASCII instead]
+# Element-childElement-null-svg.svg
+# Element-childElement-null-xhtml.xhtml
+# Element-childElementCount-dynamic-add-svg.svg
+# Element-childElementCount-dynamic-add-xhtml.xhtml
+# Element-childElementCount-dynamic-remove-svg.svg
+# Element-childElementCount-dynamic-remove-xhtml.xhtml
+# Element-childElementCount-nochild-svg.svg
+# Element-childElementCount-nochild-xhtml.xhtml
+# Element-childElementCount-svg.svg
+# Element-childElementCount-xhtml.xhtml
+# Element-closest.html: [fail, Not implemented]
+# Element-firstElementChild-entity-xhtml.xhtml
+# Element-firstElementChild-entity.svg
+# Element-firstElementChild-namespace-svg.svg
+# Element-firstElementChild-namespace-xhtml.xhtml
+# Element-firstElementChild-svg.svg
+# Element-firstElementChild-xhtml.xhtml
+# Element-getElementsByTagName-change-document-HTMLNess.html
+# Element-getElementsByTagName.html: [fail, We are doing Unicode-aware lowercasing. should be ASCII instead]
+# Element-insertAdjacentElement.html
+# Element-insertAdjacentText.html
+# Element-lastElementChild-svg.svg
+# Element-lastElementChild-xhtml.xhtml
+# Element-matches.html
+# Element-previousElementSibling-svg.svg
+# Element-previousElementSibling-xhtml.xhtml
+# Element-siblingElement-null-svg.svg
+# Element-siblingElement-null-xhtml.xhtml
+
+# Element-webkitMatchesSelector.html
+# MutationObserver-attributes.html: [fail, Not implemented]
+# MutationObserver-characterData.html: [fail, Not implemented]
+# MutationObserver-childList.html: [fail, Not implemented]
+# MutationObserver-disconnect.html: [fail, Not implemented]
+# MutationObserver-document.html: [fail, Not implemented]
+# MutationObserver-inner-outer.html: [fail, Not implemented]
+# MutationObserver-takeRecords.html: [fail, Not implemented]
+# Node-appendChild.html
+# Node-childNodes.html
+# Node-contains-xml.xml
+# Node-insertBefore.html
+# Node-isConnected.html
+# Node-isEqualNode-xhtml.xhtml
+# Node-isSameNode.html
+# Node-lookupNamespaceURI.html
+# Node-lookupPrefix.xhtml
+# Node-nodeValue.html
+# Node-properties.html
+# Node-replaceChild.html
+# Node-textContent.html
+# ParentNode-append.html
+# ParentNode-prepend.html
+# ParentNode-querySelector-All-xht.xht
+# ParentNode-querySelector-All.html
+# ProcessingInstruction-escapes-1.xhtml
+# ProcessingInstruction-literal-1.xhtml
+# Text-constructor.html
+# append-on-Document.html
+# case.html
+# getElementsByClassName-11.xml
+# insert-adjacent.html
+# prepend-on-Document.html
+# remove-unscopable.html
+# rootNode.html
+
+---
+
+DIR: dom/traversal
+
+NodeIterator-removal.html: [fail, Unknown]
+
+---
+
+DIR: domparsing
+
+DOMParser-parseFromString-html.html: [fail, Unknown]
+DOMParser-parseFromString-xml-doctype.html: [fail, Unknown]
+DOMParser-parseFromString-xml-internal-subset.html: [fail, Unknown]
+DOMParser-parseFromString-xml.html: [fail, Unknown]
+XMLSerializer-serializeToString.html: [fail, Unknown]
+createContextualFragment.html: [fail, Unknown]
+innerhtml-01.xhtml: [fail, Unknown]
+innerhtml-03.xhtml: [fail, Unknown]
+innerhtml-05.xhtml: [fail, Unknown]
+insert_adjacent_html-xhtml.xhtml: [fail, Unknown]
+xml-serialization.xhtml: [fail, Unknown]
+
+# ---
+
+# DIR: html/browsers/browsing-the-web/history-traversal
+
+# 001.html: [fail, Unknown]
+
+---
+
+DIR: html/browsers/browsing-the-web/navigating-across-documents
+
+002.html: [fail, Unknown]
+003.html: [timeout, Unknown]
+004.html: [timeout, Unknown]
+005.html: [timeout, Unknown]
+006.html: [timeout, Unknown]
+007.html: [timeout, Unknown]
+008.html: [timeout, Unknown]
+009.html: [timeout, Unknown]
+010.html: [timeout, Unknown]
+011.html: [timeout, Unknown]
+012.html: [fail, Unknown]
+013.html: [fail, Unknown]
+014.html: [fail, Unknown]
+015.html: [fail, Unknown]
+child_navigates_parent_location.html: [timeout, Unknown]
+child_navigates_parent_submit.html: [timeout, Unknown]
+empty_fragment.html: [fail, Unknown]
+navigation-unload-form-submit.html: [timeout, Unknown]
+navigation-unload-same-origin-fragment.html: [timeout, Unknown]
+source/navigate-child-function-parent.html: [timeout, Unknown]
+source/navigate-child-function.html: [timeout, Unknown]
+
+---
+
+DIR: html/browsers/browsing-the-web/scroll-to-fragid
+
+003.html: [fail, We don't update scrollTop because we don't calculate layout]
+004.html: [fail, hashchange event references the wrong window object]
+scroll-frag-percent-encoded.html: [fail, Unknown]
+scroll-to-anchor-name.html: [fail, Unknown]
+scroll-to-id-top.html: [fail, Unknown]
+scroll-to-top.html: [fail, Unknown]
+
+---
+
+DIR: html/browsers/history/the-history-interface
+
+001.html: [fail, Unknown]
+002.html: [fail, Unknown]
+004.html: [fail, Unknown]
+007.html: [fail, Unknown]
+009.html: [timeout, Unknown]
+010.html: [timeout, Unknown]
+history_back_1.html: [timeout, Unknown]
+history_forward_1.html: [timeout, Unknown]
+history_go_no_argument.html: [timeout, Unknown]
+history_go_to_uri.html: [timeout, Unknown]
+history_go_undefined.html: [timeout, Unknown]
+history_go_zero.html: [timeout, Unknown]
+joint_session_history/001.html: [timeout, Unknown]
+joint_session_history/002.html: [timeout, Unknown]
+traverse_the_history_1.html: [timeout, Unknown]
+traverse_the_history_2.html: [timeout, Unknown]
+traverse_the_history_3.html: [timeout, Unknown]
+traverse_the_history_4.html: [timeout, Unknown]
+traverse_the_history_5.html: [timeout, Unknown]
+traverse_the_history_unload_1.html: [timeout, Unknown]
+traverse_the_history_write_after_load_1.html: [timeout, Unknown]
+traverse_the_history_write_after_load_2.html: [timeout, Unknown]
+traverse_the_history_write_onload_1.html: [timeout, Unknown]
+traverse_the_history_write_onload_2.html: [timeout, Unknown]
+
+---
+
+DIR: html/browsers/history/the-location-interface
+
+allow_prototype_cycle_through_location.sub.html: [fail, Unknown]
+assign_after_load.html: [timeout, Unknown]
+assign_before_load.html: [timeout, Unknown]
+location-pathname-setter-question-mark.html: [timeout, Unknown]
+location-protocol-setter-non-broken.html: [fail, Channel Messaging API not implemented]
+location-protocol-setter-with-colon.sub.html: [timeout, Unknown]
+location-protocol-setter.html: [fail, Unknown]
+location-prototype-setting-cross-origin-domain.sub.html: [fail, Unknown]
+location-prototype-setting-cross-origin.sub.html: [fail, Unknown]
+location-prototype-setting-goes-cross-origin-domain.sub.html: [fail, Unknown]
+location-prototype-setting-same-origin-domain.sub.html: [fail, Unknown]
+location-prototype-setting-same-origin.html: [fail, Unknown]
+location-symbol-toprimitive.html: [fail, Unknown]
+location-valueof.html: [fail, Unknown]
+location_hash.html: [fail, Needs <iframe srcdoc>]
+location_reload.html: [timeout, Unknown]
+per-global.window.html: [fail, Unknown]
+reload_document_open_write.html: [timeout, Unknown]
+reload_document_write.html: [timeout, Unknown]
+reload_document_write_onload.html: [timeout, Unknown]
+reload_post_1.html: [timeout, Unknown]
+scripted_click_assign_during_load.html: [timeout, Unknown]
+scripted_click_location_assign_during_load.html: [timeout, Unknown]
+scripted_form_submit_assign_during_load.html: [timeout, Unknown]
+
+---
+
+DIR: html/browsers/offline/browser-state
+
+---
+
+DIR: html/browsers/windows
+
+auxiliary-browsing-contexts/opener-closed.html: [fail, Needs ParentNode.append()]
+auxiliary-browsing-contexts/opener-multiple.html: [timeout, Unknown]
+auxiliary-browsing-contexts/opener-noopener.html: [timeout, Unknown]
+auxiliary-browsing-contexts/opener-noreferrer.html: [timeout, Unknown]
+auxiliary-browsing-contexts/opener.html: [timeout, Unknown]
+browsing-context-names/choose-_blank-001.html: [fail, Unknown]
+browsing-context-names/choose-_blank-002.html: [timeout, Unknown]
+browsing-context-names/choose-_blank-003.html: [timeout, Unknown]
+browsing-context-names/choose-_parent-001.html: [timeout, Unknown]
+browsing-context-names/choose-_parent-002.html: [timeout, Unknown]
+browsing-context-names/choose-_parent-003.html: [timeout, Unknown]
+browsing-context-names/choose-_parent-004.html: [timeout, Unknown]
+browsing-context-names/choose-_self-001.html: [timeout, Unknown]
+browsing-context-names/choose-_self-002.html: [timeout, Unknown]
+browsing-context-names/choose-_top-001.html: [timeout, Unknown]
+browsing-context-names/choose-_top-002.html: [timeout, Unknown]
+browsing-context-names/choose-_top-003.html: [timeout, Unknown]
+browsing-context-names/choose-default-001.html: [fail, Unknown]
+browsing-context-names/choose-default-002.html: [timeout, Unknown]
+browsing-context-names/choose-existing-001.html: [timeout, Unknown]
+browsing-context.html: [fail, Unknown]
+nested-browsing-contexts/frameElement.html: [fail, Unknown]
+nested-browsing-contexts/window-parent-null.html: [fail, Unknown]
+nested-browsing-contexts/window-top-null.html: [fail, Unknown]
+nested-browsing-contexts/window-top.html: [fail, Unknown]
+noreferrer-null-opener.html: [fail, Needs localStorage]
+noreferrer-window-name.html: [fail, Needs localStorage]
+targeting-cross-origin-nested-browsing-contexts.html: [timeout, Unknown]
+
+---
+
+DIR: html/dom/documents/dom-tree-accessors
+
+Document.currentScript.html: [fail, Unknown]
+document.getElementsByName/document.getElementsByName-interface.html: [fail, document.getElementsByName() should return NodeList, https://github.com/tmpvar/jsdom/issues/1967]
+document.getElementsByName/document.getElementsByName-namespace-xhtml.xhtml: [fail, Unknown]
+document.getElementsByName/document.getElementsByName-namespace.html: [fail, Unknown]
+document.title-09.html: [fail, Requires SVG support]
+nameditem-01.html: [fail, Unknown]
+nameditem-02.html: [fail, Unknown]
+nameditem-03.html: [fail, Unknown]
+nameditem-04.html: [fail, Unknown]
+nameditem-05.html: [fail, Unknown]
+nameditem-06.html: [fail, Unknown]
+nameditem-07.html: [fail, Unknown]
+nameditem-08.html: [fail, Unknown]
+
+---
+
+DIR: html/dom/dynamic-markup-insertion/document-writeln
+
+---
+
+DIR: html/dom/elements/global-attributes
+
+dataset-prototype.html: [fail, Unknown]
+dataset-set.html: [fail, Unknown]
+dataset.html: [fail, Unknown]
+the-lang-attribute-001.html: [fail, Unknown]
+the-lang-attribute-002.html: [fail, Unknown]
+the-lang-attribute-003.html: [fail, Unknown]
+the-lang-attribute-004.html: [fail, Unknown]
+the-lang-attribute-005.html: [fail, Unknown]
+the-lang-attribute-006.html: [fail, Unknown]
+the-lang-attribute-007.html: [fail, Unknown]
+the-lang-attribute-008.html: [fail, Unknown]
+the-lang-attribute-009.html: [fail, Unknown]
+the-lang-attribute-010.html: [fail, Unknown]
+the-translate-attribute-007.html: [fail, Unknown]
+the-translate-attribute-008.html: [fail, Unknown]
+the-translate-attribute-009.html: [fail, Unknown]
+the-translate-attribute-010.html: [fail, Unknown]
+the-translate-attribute-011.html: [fail, Unknown]
+the-translate-attribute-012.html: [fail, Unknown]
+
+---
+
+DIR: html/editing/focus
+
+processing-model/focus-fixup-rule-one-no-dialogs.html: [fail, Unknown]
+
+---
+
+DIR: html/infrastructure/urls/terminology-0
+
+document-base-url.html: [fail, We don't support srcdoc <base> correctly]
+
+---
+
+DIR: html/obsolete/requirements-for-implementations
+
+other-elements-attributes-and-apis/document-all.html: [fail, document.all not implemented]
+other-elements-attributes-and-apis/document-color-01.html: [fail, Legacy color attributes not implemented]
+other-elements-attributes-and-apis/document-color-02.html: [fail, Legacy color attributes not implemented]
+other-elements-attributes-and-apis/document-color-03.html: [fail, Legacy color attributes not implemented]
+other-elements-attributes-and-apis/document-color-04.html: [fail, Legacy color attributes not implemented]
+the-marquee-element-0/marquee-events.html: [fail, <marquee> is not implemented]
+the-marquee-element-0/marquee-loop.html: [fail, <marquee> is not implemented]
+the-marquee-element-0/marquee-scrollamount.html: [fail, <marquee> is not implemented]
+the-marquee-element-0/marquee-scrolldelay.html: [fail, <marquee> is not implemented]
+
+---
+
+DIR: html/semantics/forms/attributes-common-to-form-controls
+
+dirname-ltr.html: [timeout, Unknown]
+formAction_document_address.html: [fail, Unknown]
+formaction.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/resetting-a-form
+
+reset-event.html: [fail, Unknown]
+reset-form-event-realm.html: [fail, Unknown]
+reset-form.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-button-element
+
+button-activate.html: [fail, Unknown]
+button-events.html: [fail, Unknown]
+button-validation.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-form-element
+
+form-action-submission-with-base-url.html: [timeout, Unknown]
+form-action-submission.html: [timeout, Unknown]
+form-autocomplete.html: [fail, Unknown]
+form-elements-filter.html: [fail, Unknown]
+form-elements-interfaces-01.html: [fail, Unknown]
+form-elements-matches.html: [fail, Unknown]
+form-elements-nameditem-01.html: [fail, Unknown]
+form-indexed-element.html: [fail, Unknown]
+form-nameditem.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-input-element
+
+button.html: [fail, Unknown]
+checkbox.html: [fail, Unknown]
+date.html: [fail, Unknown]
+datetime-local.html: [fail, Unknown]
+datetime.html: [fail, Unknown]
+email.html: [fail, Unknown]
+files.html: [fail, Unknown]
+hidden.html: [fail, Unknown]
+input-type-button.html: [fail, Unknown]
+input-type-checkbox.html: [fail, Unknown]
+maxlength.html: [fail, Unknown]
+minlength.html: [fail, Unknown]
+month.html: [fail, Unknown]
+number.html: [fail, Unknown]
+radio-groupname-case.html: [fail, Unknown]
+radio.html: [fail, Unknown]
+range-2.html: [fail, Unknown]
+range.html: [fail, Unknown]
+reset.html: [fail, Unknown]
+text.html: [fail, Unknown]
+time-2.html: [fail, Unknown]
+time.html: [fail, Unknown]
+type-change-state.html: [fail, Unknown]
+valueMode.html: [fail, Unknown]
+week.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-label-element
+
+label-attributes.html: [fail, Unknown]
+labelable-elements.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-option-element
+
+option-label.html: [fail, Unknown]
+option-text-recurse.html: [fail, Unknown]
+option-value.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/forms/the-select-element
+
+select-validity.html: [fail, Validation is not implemented]
+
+---
+
+DIR: html/semantics/forms/the-textarea-element
+
+cloning-steps.html: [fail, Unknown]
+value-defaultValue-textContent-xhtml.xhtml: [fail, Unknown]
+
+---
+
+DIR: html/semantics/disabled-elements
+
+---
+
+DIR: html/semantics/document-metadata/the-base-element
+
+base_multiple.html: [timeout, We don't support navigation via <a target>]
+
+# ---
+
+# DIR: html/semantics/scripting-1/the-script-element
+
+# async_001.htm: [timeout, Unknown]
+# async_002.htm: [timeout, Unknown]
+# async_003.htm: [timeout, Unknown]
+# async_004.htm: [timeout, Unknown]
+# async_005.htm: [timeout, Unknown]
+# async_006.htm: [timeout, Unknown]
+# async_008.htm: [timeout, Unknown]
+# async_009.htm: [timeout, Unknown]
+# async_011.htm: [timeout, Unknown]
+# data-url.html: [timeout, Unknown]
+# fetch-src/empty.html: [timeout, Unknown]
+# fetch-src/empty-with-base.html: [timeout, Unknown]
+# fetch-src/failure.html: [timeout, Unknown]
+# load-error-events-1.html
+# load-error-events-2.html
+# load-error-events-3.html
+# charset-01.html
+# charset-02.html
+# charset-03.html
+
+---
+
+DIR: html/semantics/scripting-1/the-template-element
+
+additions-to-parsing-xhtml-documents/node-document.html: [timeout, Unknown]
+additions-to-parsing-xhtml-documents/template-child-nodes.html: [timeout, Unknown]
+additions-to-serializing-xhtml-documents/outerhtml.html: [fail, Unknown]
+definitions/template-contents-owner-test-001.html: [fail, Unknown]
+definitions/template-contents-owner-test-002.html: [fail, Unknown]
+template-element/node-document-changes.html: [fail, Unknown]
+
+---
+
+DIR: html/semantics/tabular-data/the-table-element
+
+caption-methods.html: [fail, Not implemented]
+createTBody.html: [fail, Not implemented]
+remove-row.html: [fail, Unknown]
+tFoot.html: [fail, Missing setter, https://github.com/tmpvar/jsdom/issues/1968]
+tHead.html: [fail, Missing setter, https://github.com/tmpvar/jsdom/issues/1968]
+table-rows.html: [fail, Unknown]
+
+---
+
+DIR: html/syntax/serializing-html-fragments
+
+serializing.html: [fail, Unknown]
+
+---
+
+DIR: html/syntax/parsing/template
+
+---
+
+DIR: html/webappapis/atob
+
+# ---
+
+# DIR: html/webappapis/scripting/events
+
+---
+
+DIR: url
+
+a-element-xhtml.xhtml: [fail, Unknown]
+a-element.html: [fail, Unknown]
+failure.html: [fail, Fetch is not implemented]
+interfaces.any.html: [fail, Unknown]
+toascii.window.html: [fail, Unknown]
+url-constructor.html: [fail, Unknown]
+urlencoded-parser.html: [fail, Unknown]
+urlsearchparams-constructor.html: [fail, Unknown]
+urlsearchparams-delete.html: [fail, Unknown]
+urlsearchparams-foreach.html: [fail, Unknown]
+urlsearchparams-sort.html: [fail, Unknown]
+
+# ---
+
+# DIR: FileAPI
+
+# blob/Blob-XHR-revoke.html: [fail, URL.createObjectURL not implemented]
+# blob/Blob-constructor.html: [fail, "- Blob is not a function
+#                                     - a date is not instanceof Date
+#                                     - a regexp is not instanceof Regexp
+#                                     - strange v8 behaviour when error triggered in overridden array length
+#                                     - HTMLSelectElement does not have indexed properties
+#                                     - MessageChannel not implemented
+#                                     - element attributes does not have indexed properties"]
+# filelist-section/filelist.html: [fail, function is not instanceof Function]
+# idlharness.html: [fail, URL.createObjectURL not implemented]
+# url/blob-url-in-sandboxed-iframe.html: [timeout, Unknown]
+# url/multi-global-origin-serialization.sub.html: [fail, Unknown]
+# url/origin.sub: [fail, URL.createObjectURL not implemented]
+# url/url_createobjecturl_blob.html: [fail, URL.createObjectURL not implemented]
+# url/url_xmlhttprequest.html: [fail, URL.createObjectURL not implemented]
+
+# ---
+
+# DIR: XMLHttpRequest
+
+# ---
+
+# DIR: cors
+
+# ---
+
+# DIR: progress-events
